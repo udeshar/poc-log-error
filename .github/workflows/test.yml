@@ -6,6 +6,9 @@ on:
       - main  # Change to your branch name if needed
   pull_request:  # Add this to trigger on pull requests
 
+permissions:
+  issues: write  # Ensure the token has write permissions for issues
+
 jobs:
   build:
     runs-on: ubuntu-latest
