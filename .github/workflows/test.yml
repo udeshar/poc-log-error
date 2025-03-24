@@ -6,6 +6,9 @@ on:
       - main  # Change to your branch name if needed
   pull_request:  # Add this to trigger on pull requests
 
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Set the GH_TOKEN 
+
 permissions:
   issues: write  # Ensure the token has write permissions for issues
   pull-requests: write  # Ensure the token has write permissions for pull requests
