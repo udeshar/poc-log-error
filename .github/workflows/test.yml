@@ -18,3 +18,14 @@ jobs:
           echo "Building project..."
           # Add your build commands, e.g.,
           # ./gradlew build (for Gradle projects)
+
+      - name: Request Copilot Review
+        uses: github/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "🤖 GitHub Copilot: Please review this PR and suggest improvements!"
+            });
