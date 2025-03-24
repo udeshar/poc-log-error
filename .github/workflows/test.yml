@@ -8,6 +8,7 @@ on:
 
 permissions:
   issues: write  # Ensure the token has write permissions for issues
+  pull-requests: write  # Ensure the token has write permissions for pull requests
 
 jobs:
   build:
