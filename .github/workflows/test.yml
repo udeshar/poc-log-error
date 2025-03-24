@@ -6,6 +6,9 @@ on:
       - main  # Change to your branch name if needed
   pull_request:  # Add this to trigger on pull requests
 
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Set the GH_TOKEN 
+
 permissions:
   issues: write  # Ensure the token has write permissions for issues
   pull-requests: write  # Ensure the token has write permissions for pull requests
@@ -17,6 +20,17 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+
+      - name: Install GitHub CLI
+        run: |
+          sudo apt update
+          sudo apt install gh -y
+
+      - name: Install Copilot CLI (if you have access)
+        run: gh extension install github/gh-copilot
+
+      - name: Run Copilot CLI to explain a file
+        run: gh copilot explain readme.md
 
       - name: Build Project
         run: |
