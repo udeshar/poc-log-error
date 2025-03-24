@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # Change to your branch name if needed
+  pull_request:  # Add this to trigger on pull requests
 
 jobs:
   build:
