@@ -21,7 +21,7 @@ jobs:
           # ./gradlew build (for Gradle projects)
 
       - name: Request Copilot Review
-        uses: github/github-script@v6
+        uses: actions/github-script@v7.0.1
         with:
           script: |
             github.rest.issues.createComment({
